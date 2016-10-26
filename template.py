@@ -41,7 +41,11 @@ def reverse_item(item):
 
 # Makes templates
 def make_template(skeleton, getter, action):
-    """Instantiate a template method with getter and action"""
+    """Instantiate a template method with getter and action
+    通过闭包来延迟函数的调用
+    常用在装饰器函数中，通过闭包为函数封装新的逻辑，但是不立即执行
+    """
+    
     def template():
         skeleton(getter, action)
     return template
